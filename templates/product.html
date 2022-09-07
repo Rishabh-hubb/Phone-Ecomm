@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="mx-5 my-5 ">
+        {% for product in products %}
+            <div class="card my-5 mx-auto px-2 py-3">
+              <div class="card-body">
+                <image src="{{ product.image.url  }}">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-danger">{{ product.price|floatformat:2 }}    <span>{{ product.color }}</span></h6>
+                <p class="card-text">{{ product.description|truncatechars:15 }}</p>
+                <a href="{% url 'detail-product' product.pk %}" class="btn btn-dark">Read More</a>
+              </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

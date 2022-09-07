@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="POST">
+
+    {% csrf_token%}
+    {% if messages %}
+        {{ form.error_messages }}
+    {% endif %}
+    {{ form|crispy }}
+    <button class="btn btn-primary">Verify</button>
+</form>
+{% endblock %}

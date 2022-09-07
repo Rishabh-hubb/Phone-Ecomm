@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <a href="{% url 'all-product' %}"><button class="btn btn-primary text-dark">Go to Site</button></a>
+    {% else %}
+        <a href="{% url 'login' %}"><button class="btn btn-primary">Login Here To Visit Site</button></a>
+    {% endif %}
+
+{% endblock %}
